@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Regions Mortgage - Welcome Back</title>
     <link rel="stylesheet" href="style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <style>
       /* Hide loader initially */
       .loader {
@@ -26,17 +30,21 @@
   </head>
   <body>
     <div class="container">
+      
       <div class="login-section">
-        <div class="header">
-          <div class="logo">
-            <img src="/logo.png" alt="Regions Mortgage Logo" />
-            <h3>REGIONS<br />Mortgage</h3>
+        <div class="header ">
+          <div class=" logo ">
+            <img src="/logo.png" alt="Regions Mortgage Logo"  class="animate"/>
+            <h3 class="animate__animated animate__fadeOutLeft animate__delay-1s">REGIONS<br />Mortgage</h3>
           </div>
-          <div>
+          <div  class=" animate__animated animate__backOutDown animate__delay-1s">
             <span>Are you a new customer?</span>
             <a href="#" class="enroll-button">Enroll Now</a>
           </div>
         </div>
+        <div class=" animate__animated animate__backOutDown animate__delay-1s">
+
+  
         <div class="welcome-back">
           <h1>Welcome Back</h1>
           <p>Sign in to your Regions My Mortgage account.</p>
@@ -70,18 +78,22 @@
           <a href="#">Forgot Password?</a>
         </div>
        
-      </div>
+      </div>      </div>
       
       <div class="image-section">
         <img src="/home.webp" alt="" id="img" srcset="">
       </div>
     </div>
+    <div class=" animate__animated animate__backOutDown  animate__delay-1.5s">
     <div class="footer">
-      <p>Equal Housing Lender | Member FDIC</p>
+      <p> <img src="icons8-home-page-25.png" class="im">Equal Housing Lender | Member FDIC</p>
       <p>©2023 Regions Financial Corporation. All Rights Reserved.  <a style="color: green;">1-800-REGION</a>
       </p>
     </div>
+    </div>
+  
   </body>
+
   <script>
     function togglePassword() {
         const passwordInput = document.getElementById('password');
@@ -141,5 +153,17 @@
             });
         }, 500);
     });
+
+    document.querySelector('.logo').addEventListener('click', function() {
+            this.style.animation = 'none';
+            this.offsetHeight; // Trigger reflow
+            this.style.animation = null;
+        });
+        function resetAnimation() {
+            const img = document.getElementById('img');
+            img.style.animation = 'none';
+            img.offsetHeight; // Trigger reflow
+            img.style.animation = 'squeeze-disappear 3s ease-in-out forwards';
+        }
   </script> 
 </html>
