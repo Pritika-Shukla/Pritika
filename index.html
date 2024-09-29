@@ -4,64 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Regions Mortgage - Welcome Back</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-    <style>
-      /* Hide loader initially */
-      .loader {
-        display: none;
-        width: 16px;
-        height: 16px;
-        border: 2px solid #f3f3f3;
-        border-top: 2px solid #3498db;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin-left: 10px;
-      }
-
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-    </style>
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
   <body>
     <div class="container">
-      
       <div class="login-section">
-        <div class="header ">
-          <div class=" logo ">
-            <img src="/logo.png" alt="Regions Mortgage Logo"  class="animate"/>
-            <h3 class="animate__animated animate__fadeOutLeft animate__delay-1s">REGIONS<br />Mortgage</h3>
+        <div class="header">
+          <div class="logo">
+            <img src="/logo.png" alt="Regions Mortgage Logo" />
+            <h3>REGIONS<br />Mortgage</h3>
           </div>
-          <div  class=" animate__animated animate__backOutDown animate__delay-1s">
+          <div>
             <span>Are you a new customer?</span>
-            <a href="#" class="enroll-button">Enroll Now</a>
+            <button class="enroll-button">
+              Enroll Now
+              <ul>
+                <li>Access your loans online</li>
+                <li>Pay your mortgage online</li>
+                <li>View your mortgage statements</li>
+              </ul>
+            </button>
           </div>
         </div>
-        <div class=" animate__animated animate__backOutDown animate__delay-1s">
 
-  
         <div class="welcome-back">
           <h1>Welcome Back</h1>
           <p>Sign in to your Regions My Mortgage account.</p>
         </div>
         <form class="login-form">
           <div class="form-group">
-              <div class="input-wrapper">
-                  <input type="text" id="online-id" placeholder=" " required>
-                  <label for="online-id">Online ID</label>
-              </div>
+            <div class="input-wrapper">
+              <input type="text" id="online-id" placeholder=" " required />
+              <label for="online-id">Online ID</label>
+            </div>
           </div>
           <div class="form-group">
-              <div class="input-wrapper">
-                  <input type="password" id="password" placeholder=" " required>
-                  <label for="password">Password</label>
-                  <button type="button" class="show-password" onclick="togglePassword()">Show</button>
-              </div>
+            <div class="input-wrapper">
+              <input type="password" id="password" placeholder=" " required />
+              <label for="password">Password</label>
+              <button
+                type="button"
+                class="show-password"
+                onclick="togglePassword()"
+              >
+                Show
+              </button>
+            </div>
           </div>
 
           <div class="remember">
@@ -77,93 +69,23 @@
           <a href="#">Forgot Online ID?</a>
           <a href="#">Forgot Password?</a>
         </div>
-       
-      </div>      </div>
-      
+      </div>
+
       <div class="image-section">
-        <img src="/home.webp" alt="" id="img" srcset="">
+        <img src="/home.webp" alt="" id="img" srcset="" />
       </div>
     </div>
-    <div class=" animate__animated animate__backOutDown  animate__delay-1.5s">
     <div class="footer">
-      <p> <img src="icons8-home-page-25.png" class="im">Equal Housing Lender | Member FDIC</p>
-      <p>©2023 Regions Financial Corporation. All Rights Reserved.  <a style="color: green;">1-800-REGION</a>
+      <p>
+        <img src="icons8-home-page-25.png" class="im" />Equal Housing Lender |
+        Member FDIC
+      </p>
+      <p>
+        ©2023 Regions Financial Corporation. All Rights Reserved.
+        <a style="color: green">1-800-REGION</a>
       </p>
     </div>
-    </div>
-  
+
+    <script src="script.js"></script>
   </body>
-
-  <script>
-    function togglePassword() {
-        const passwordInput = document.getElementById('password');
-        const showPasswordButton = document.querySelector('.show-password');
-        
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            showPasswordButton.textContent = 'Hide';
-        } else {
-            passwordInput.type = 'password';
-            showPasswordButton.textContent = 'Show';
-        }
-    }
-
-    document.querySelector('.login-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const onlineId = document.getElementById('online-id');
-        const password = document.getElementById('password');
-        const loader = document.querySelector('.loader');
-        const loginButton = document.querySelector('.login-button');
-        const loginText = document.querySelector('.login-text');
-
-        // Reset any existing error states
-        let hasError = false;
-        onlineId.parentElement.classList.remove('error');
-        password.parentElement.classList.remove('error');
-
-        // Check if fields are empty
-        if (onlineId.value.trim() === '') {
-            onlineId.parentElement.classList.add('error');
-            hasError = true;
-        }
-        if (password.value.trim() === '') {
-            password.parentElement.classList.add('error');
-            hasError = true;
-        }
-
-        // Show loader and hide text only if there's no error
-        if (!hasError) {
-            loader.style.display = 'inline-block'; // Show the loader
-            loginText.style.display = 'none'; // Hide the login text
-            loginButton.disabled = true; // Disable the button during submission
-
-            // Simulate form submission delay
-            setTimeout(() => {
-                loader.style.display = 'none'; // Hide the loader after submission
-                loginText.style.display = 'inline'; // Show the login text again
-                loginButton.disabled = false; // Re-enable the button
-                alert("Form submitted successfully!");
-            }, 2000);
-        }
-
-        // Reset error states after 500ms if there are errors
-        setTimeout(() => {
-            document.querySelectorAll('.input-wrapper').forEach(wrapper => {
-                wrapper.classList.remove('error');
-            });
-        }, 500);
-    });
-
-    document.querySelector('.logo').addEventListener('click', function() {
-            this.style.animation = 'none';
-            this.offsetHeight; // Trigger reflow
-            this.style.animation = null;
-        });
-        function resetAnimation() {
-            const img = document.getElementById('img');
-            img.style.animation = 'none';
-            img.offsetHeight; // Trigger reflow
-            img.style.animation = 'squeeze-disappear 3s ease-in-out forwards';
-        }
-  </script> 
 </html>
